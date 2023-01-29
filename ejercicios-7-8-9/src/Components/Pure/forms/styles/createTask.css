@@ -1,0 +1,10 @@
+.create-contact{
+  padding: 0.2rem;
+  border: 3px solid green;
+  border-radius: 1rem;
+}
+.create-contact:hover{
+  cursor: pointer;
+  background-color: green;
+  border-radius: 20%;
+}
