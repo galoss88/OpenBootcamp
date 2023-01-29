@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import Tasks from "../../Pure/Tasks";
 import { useState } from "react";
 import Task from "../../../Models/task.class";
@@ -22,17 +22,16 @@ const TaskList = (props) => {
   function deleteContact(contact) {
     const copyContacts = [...ListContacts];
     let index = copyContacts.indexOf(contact);
-    console.log("contacto", copyContacts, "indice", index, ListContacts);
-    copyContacts.splice(index, 1)
+
+    copyContacts.splice(index, 1);
     return setListContacts(copyContacts);
   }
-function setStatus(contact){
-  const index = ListContacts.indexOf(contact);
-  const newContacts = [...ListContacts]
-  newContacts[index].Estado = !newContacts[index].Estado
-  setListContacts(newContacts);
-  
-}
+  function setStatus(contact) {
+    const index = ListContacts.indexOf(contact);
+    const newContacts = [...ListContacts];
+    newContacts[index].Estado = !newContacts[index].Estado;
+    setListContacts(newContacts);
+  }
   return (
     <>
       {openCreateContact && (
@@ -44,7 +43,7 @@ function setStatus(contact){
       {!openCreateContact && (
         <Tasks
           ListContacts={ListContacts}
-          setListContacts= {setListContacts}
+          setListContacts={setListContacts}
           openCreateContacts={openCreateContacts}
           deleteContact={deleteContact}
           setStatus={setStatus}
@@ -53,7 +52,5 @@ function setStatus(contact){
     </>
   );
 };
-
-TaskList.propTypes = {};
 
 export default TaskList;

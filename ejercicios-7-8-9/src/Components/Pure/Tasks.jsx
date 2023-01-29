@@ -2,9 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "bootstrap/dist/css/bootstrap.css";
 
-function Tasks({ ListContacts, openCreateContacts, setListContacts, deleteContact, setStatus }) {
- 
-
+function Tasks({ ListContacts, openCreateContacts, deleteContact, setStatus }) {
   return (
     <table className="table">
       <thead>
@@ -32,8 +30,7 @@ function Tasks({ ListContacts, openCreateContacts, setListContacts, deleteContac
                 <th>{contact.Email}</th>
                 <th>
                   {contact.Estado ? "Conectado" : "Desconectado"}
-                  <button onClick={()=>setStatus(contact)}>Cambiar</button>
-                
+                  <button onClick={() => setStatus(contact)}>Cambiar</button>
                 </th>
                 <th>
                   <button onClick={() => deleteContact(contact)}>
@@ -49,7 +46,8 @@ function Tasks({ ListContacts, openCreateContacts, setListContacts, deleteContac
 }
 
 Tasks.propTypes = {
-  createTask: PropTypes.func.isRequired,
+  deleteContact: PropTypes.func,
+  setStatus: PropTypes.func,
 };
 
 export default Tasks;
